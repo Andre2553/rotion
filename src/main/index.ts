@@ -1,5 +1,6 @@
 import { app, shell, BrowserWindow } from 'electron'
 import * as path from 'node:path'
+import { createFileRoute, createURLRoute } from 'electron-router-dom'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 
 function createWindow(): void {
@@ -35,12 +36,18 @@ function createWindow(): void {
     return { action: 'deny' }
   })
 
+  const devServerURL = createURLRoute(process.env['ELECTRON_RENDERER_URL']!, 'main')
+
+  const fileRoute = createFileRoute(
+    path.join(__dirname, '../renderer/index.html'),
+    'main'
+  )
   // HMR for renderer base on electron-vite cli.
   // Load the remote URL for development or the local html file for production.
   if (is.dev && process.env.ELECTRON_RENDERER_URL) {
-    mainWindow.loadURL(process.env.ELECTRON_RENDERER_URL)
+    mainWindow.loadURL(devServerURL)
   } else {
-    mainWindow.loadFile(path.join(__dirname, '../renderer/index.html'))
+    mainWindow.loadFile(...fileRoute)
   }
 }
 if(process.platform === 'darwin'){
