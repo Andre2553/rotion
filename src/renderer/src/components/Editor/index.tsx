@@ -21,7 +21,7 @@ export function Editor(){
              emptyEditorClass: "before:content-[attr(data-placeholder)] before:text-gray-500 before:h-0 before:float-left before:pointer-events-none ",
          }),
        ],
-       content: '<h1>Hello World! 🌎</h1>',
+       content: '<h1>Hello World!! 🌎</h1>',
        autofocus: 'end',
        editorProps: {
          attributes: {
