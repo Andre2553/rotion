@@ -12,7 +12,7 @@ export function Sidebar() {
   const { data } = useQuery(['documents'], async() => {
     const response = await window.api.fetchDocuments();
 
-    return response;
+    return response.data;
   });
   return (
     <Collapsible.Content className="bg-rotion-800 flex-shrink-0 border-r border-rotion-600 h-screen relative group data-[state=open]:animate-slideIn data-[state=closed]:animate-slideOut overflow-hidden">
