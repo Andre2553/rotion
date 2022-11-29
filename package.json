@@ -24,6 +24,7 @@
     "@electron-toolkit/preload": "^1.0.2",
     "@electron-toolkit/utils": "^1.0.2",
     "@radix-ui/react-collapsible": "^1.0.1",
+    "@tanstack/react-query": "^4.18.0",
     "@tiptap/extension-document": "^2.0.0-beta.204",
     "@tiptap/extension-highlight": "^2.0.0-beta.204",
     "@tiptap/extension-placeholder": "^2.0.0-beta.204",

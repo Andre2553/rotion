@@ -1,6 +1,14 @@
 import {ipcMain} from 'electron';
 
-ipcMain.on('fetch-documents', (event, arg) => {
-  console.log(arg); // prints "ping"
-  event.reply('fetch-documents', 'pong');
+ipcMain.handle('fetch-documents', async () => {
+   return [
+      {
+         id: '1',
+         title: 'Document 1',
+      },
+      {
+         id: '2',
+         title: 'Document 2',
+      },
+   ];
 });
