@@ -2,7 +2,7 @@ import clsx from 'clsx'
 import { Code, CaretDoubleRight, TrashSimple } from 'phosphor-react'
 import * as Breadcrumbs from './Breadcrumbs'
 import * as Collapsible from '@radix-ui/react-collapsible';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { Document } from '../../shared/types/ipc';
 
@@ -14,6 +14,7 @@ export function Header(props: HeaderProps) {
 
   const { id } = useParams<{ id: string }>();
   const queryClient = useQueryClient();
+  const navigate = useNavigate();
   const { mutateAsync: deleteDocument, isLoading: isDeletingDocument} = useMutation( async () => {
      await window.api.deleteDocument({ id: id! });
   },
@@ -22,6 +23,7 @@ export function Header(props: HeaderProps) {
       queryClient.setQueryData<Document[]>(['documents'], (documents) => {
         return documents?.filter((documents) => documents.id !== id);
       })
+      navigate('/');
     }
   });
 
