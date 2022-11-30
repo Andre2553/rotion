@@ -6,6 +6,7 @@ import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import './ipc'
 import './store'
 import { createTray } from './tray'
+import { createShorcuts } from './shortcuts'
 
 function createWindow(): void {
   // Create the browser window.
@@ -32,6 +33,8 @@ function createWindow(): void {
   })
 
   createTray(mainWindow);
+  createShorcuts(mainWindow);
+  
   mainWindow.on('ready-to-show', () => {
     mainWindow.show()
   })
