@@ -5,6 +5,7 @@ import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 
 import './ipc'
 import './store'
+import './tray'
 function createWindow(): void {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
