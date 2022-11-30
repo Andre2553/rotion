@@ -1,5 +1,5 @@
-appId: com.electron.app
-productName: rotion
+appId: com.and3lima.app
+productName: Rotion
 directories:
   buildResources: build
 files:
@@ -32,7 +32,11 @@ linux:
     - AppImage
     - snap
     - deb
+    - rpm
+    - pacman
+    - freebsd
   maintainer: electronjs.org
+  synopsis: ${description}
   category: Utility
 appImage:
   artifactName: ${name}-${version}.${ext}
